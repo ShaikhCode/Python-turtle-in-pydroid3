@@ -9,7 +9,7 @@ t.pensize(3)
 t.color('white')
 
 #variable define x and y can be adjusted according to screen
-message = "Thanks For What You Have Teach Us          Rahul Sir"
+message = "How are You all Python Software Developer"
 x = -180  
 y = 350
 

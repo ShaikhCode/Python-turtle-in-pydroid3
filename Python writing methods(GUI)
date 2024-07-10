@@ -1,0 +1,31 @@
+import turtle as t
+
+#gui setting
+sc= t.Screen()
+sc.bgcolor('black')
+sc.setup(width=400, height=800)  
+t.speed(2)
+t.pensize(3)
+t.color('white')
+
+#variable define x and y can be adjusted according to screen
+message = "Thanks For What You Have Teach Us          Rahul Sir"
+x = -180  
+y = 350
+
+#function to write 
+def draw_message(message, x, y):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    for c in message:
+        t.write(c, move=True, align="left", font=("Arial", 14, "normal"))
+        t.setx(t.xcor() + 14)  
+        if t.xcor() > 184  :
+            t.penup()
+            t.goto(x, t.ycor() - 70)
+            t.pendown()
+
+#function call here
+draw_message(message, x, y)
+t.mainloop()

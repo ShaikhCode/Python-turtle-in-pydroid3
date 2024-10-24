@@ -1,0 +1,38 @@
+#define RELAY_PIN1 13
+#define RELAY_PIN2 12
+
+void setup() {
+  pinMode(RELAY_PIN1, OUTPUT);
+  pinMode(RELAY_PIN2, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    String command = Serial.readString();
+
+    command.trim();  // Remove whitespace
+
+    if (command == "relay1_on") {
+      digitalWrite(RELAY_PIN1, HIGH);  // Turn on bulb
+      Serial.println("Bulb ON");
+    } else if (command == "relay1_off") {
+      digitalWrite(RELAY_PIN1, LOW);   // Turn off bulb
+      Serial.println("Bulb OFF");
+    } else if (command == "relay2_on") {
+      digitalWrite(RELAY_PIN2, HIGH);  // Turn on fan
+      Serial.println("Fan ON");
+    } else if (command == "relay2_off") {
+      digitalWrite(RELAY_PIN2, LOW);   // Turn off fan
+      Serial.println("Fan OFF");
+    } else if (command == "all_on") {
+      digitalWrite(RELAY_PIN1, HIGH);
+      digitalWrite(RELAY_PIN2, HIGH);
+      Serial.println("All ON");
+    } else if (command == "all_off") {
+      digitalWrite(RELAY_PIN1, LOW);
+      digitalWrite(RELAY_PIN2, LOW);
+      Serial.println("All OFF");
+    }
+  }
+}

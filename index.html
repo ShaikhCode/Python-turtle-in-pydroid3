@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Controller</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1b1b1b;
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #novaStatus {
+            margin-top: 20px;
+            font-size: 24px;
+            padding: 10px;
+            border: 2px solid white;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #controls {
+            margin-top: 40px;
+        }
+        .active-circle {
+            border-radius: 50%;
+            background-color: #28a745;
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+        }
+        .inactive-circle {
+            border-radius: 50%;
+            background-color: #dc3545;
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+        }
+        #arduinoStatus {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .connected {
+            color: #28a745;
+        }
+        .not-connected {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nova Voice Controller</h1>
+    <div id="novaStatus">Nova is not active <span class="inactive-circle"></span></div>
+    <div id="controls">
+        <button onclick="sendCommand('relay1_on')">Turn ON Bulb</button>
+        <button onclick="sendCommand('relay1_off')">Turn OFF Bulb</button>
+        <br>
+        <button onclick="sendCommand('relay2_on')">Turn ON Fan</button>
+        <button onclick="sendCommand('relay2_off')">Turn OFF Fan</button>
+        <br>
+        <button onclick="sendCommand('all_on')">Turn ALL ON</button>
+        <button onclick="sendCommand('all_off')">Turn ALL OFF</button>
+    </div>
+    <div id="arduinoStatus">Checking Arduino connection...</div>
+
+    <script src="scr.js"></script>
+</body>
+</html>
